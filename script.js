@@ -3,18 +3,18 @@ y=365;
 dx=5;
 dy=5;
 
-largeur=document.getElementById("terrain").style.width
-hauteur=document.getElementById("terrain").style.height
-rayon=document.getElementById("balle").style.height
-console.log(largeur,hauteur,rayon)
+largeur=document.getElementById("terrain").clientWidth
+hauteur=document.getElementById("terrain").clientHeight
+diametre=document.getElementById("balle").clientHeight
+console.log(largeur,hauteur,diametre)
 
 function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
-if (x + dx > largeur-rayon || x + dx < rayon) {
+if (x + dx > largeur-diametre || x + dx < diametre) {
         dx = -dx;
     }
-if(y + dy > hauteur-rayon || y + dy < rayon) {
+if(y + dy > hauteur-diametre || y + dy < diametre) {
         dy = -dy;
     }
 x += dx;
