@@ -16,7 +16,8 @@ if (x + dx > largeur-diametre || x + dx < diametre) {
     }
 if(y + dy > hauteur-diametre || y + dy < diametre) {
         dy = -dy;
-    }
+}
+console.log(hauteur-diametre, dy)
 x += dx;
 y += dy;
 }
@@ -37,5 +38,11 @@ function deplacement_racket2(u){
 		u=0	
 	document.getElementById("racket2").style.top=u+"px"	
 }
+
+function touchePressee(e){
+	console.log(e)
+}
+document.addEventListener('keydown',touchePressee);
+
 
 
