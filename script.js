@@ -23,29 +23,43 @@ if(y + dy > hauteur-diametre || y + dy < 0
 x += dx;
 y += dy;
 }
-setInterval(deplacement,20)
+setInterval(deplacement,5)
+
+w=(document.getElementById("terrain").clientHeight-document.getElementById("racket1").clientHeight)
 
 function deplacement_racket1(u){
-	if (u>300)
-		u=300
+	u += document.getElementById("racket1").offsetTop
+	if (u>w)
+		u=w
 	if (u<0)
 		u=0	
 	document.getElementById("racket1").style.top=u+"px"	
 }
 
 function deplacement_racket2(u){
-	if (u>300)
-		u=300
+	u += document.getElementById("racket2").offsetTop
+	if (u>w)
+		u=w
 	if (u<0)
 		u=0	
 	document.getElementById("racket2").style.top=u+"px"	
 }
 
 function touchePressee(e){
-	console.log(e)
-document.getElementById()
+	if (e.key == "w")
+		deplacement_racket1(-100)
+	if (e.key == "s")
+		deplacement_racket1(100)
+	if (e.key == "ArrowUp")
+		deplacement_racket2(-100)
+	if (e.key == "ArrowDown")
+		deplacement_racket2(100)
 }
 document.addEventListener('keydown',touchePressee);
 
+function init(){
+document.getElementById("racket1").style.top=(w)/2+"px"
+document.getElementById("racket2").style.top=(w)/2+"px"
+}
 
-
+init();
