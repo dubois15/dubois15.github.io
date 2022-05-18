@@ -1,8 +1,7 @@
-x=650;
-y=365;
-dx=5;
-dy=5;
-
+x=0
+y=0
+dx=0
+dy=0
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
 diametre=document.getElementById("balle").clientHeight
@@ -23,7 +22,6 @@ if(y + dy > hauteur-diametre || y + dy < 0
 x += dx;
 y += dy;
 }
-setInterval(deplacement,5)
 
 w=(document.getElementById("terrain").clientHeight-document.getElementById("racket1").clientHeight)
 
@@ -60,6 +58,11 @@ document.addEventListener('keydown',touchePressee);
 function init(){
 document.getElementById("racket1").style.top=(w)/2+"px"
 document.getElementById("racket2").style.top=(w)/2+"px"
+x=largeur/2
+y=hauteur/2
+dx=5
+dy=Math.random()*(dx/5)-dx/10
+setInterval(deplacement,5)
 }
 
 init();
