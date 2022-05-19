@@ -14,11 +14,17 @@ document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
 if (x + dx > largeur-diametre || x + dx < 0) 
 {dx = -dx;}
+
 toucher=false
-if(x<epaisseur && y==u){
+if(x<epaisseur){
 toucher=true
 }
 console.log(toucher)
+
+if(toucher==true){
+dy = -dy;
+}
+y += dy;
 
 if(y + dy > hauteur-diametre || y + dy < 0) 
 {dy = -dy;}
@@ -64,7 +70,7 @@ x=largeur/2
 y=hauteur/2
 dx=5
 dy=Math.random()*(dx/5)-dx/10
-setInterval(deplacement,5)
+setInterval(deplacement,50)
 }
 
 init();
