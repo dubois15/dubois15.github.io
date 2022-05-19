@@ -5,25 +5,27 @@ dy=0
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
 diametre=document.getElementById("balle").clientHeight
+epaisseur=document.getElementById("racket1").clientWidth
+w=(document.getElementById("terrain").clientHeight-document.getElementById("racket1").clientHeight)
 //console.log(largeur,hauteur,diametre)
 
 function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
-if (x + dx > largeur-diametre || x + dx < 0
-	) {
-        dx = -dx;
-    }
-if(y + dy > hauteur-diametre || y + dy < 0
-	) {
-        dy = -dy;
+if (x + dx > largeur-diametre || x + dx < 0) 
+{dx = -dx;}
+toucher=false
+if(x<epaisseur && y==u){
+toucher=true
 }
-//console.log(hauteur-diametre, dy)
+console.log(toucher)
+
+if(y + dy > hauteur-diametre || y + dy < 0) 
+{dy = -dy;}
+
 x += dx;
 y += dy;
 }
-
-w=(document.getElementById("terrain").clientHeight-document.getElementById("racket1").clientHeight)
 
 function deplacement_racket1(u){
 	u += document.getElementById("racket1").offsetTop
