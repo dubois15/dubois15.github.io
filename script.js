@@ -13,20 +13,19 @@ function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
 
-//if (x + dx > largeur-diametre || x + dx < 0) 
-//{dx = -dx;}
+if (x + dx > largeur-diametre || x + dx < 0) 
+{dx = -dx;}
 
 toucher=false
 if(x+dx < epaisseur){
-	if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre){
-toucher=true
-}
-	if(document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight> document.getElementById("balle").offsetTop){
+	if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight> document.getElementById("balle").offsetTop){
 toucher=true
 }
 }
 if(x+dx> largeur-diametre-epaisseur){
+	if(document.getElementById("racket2").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight> document.getElementById("balle").offsetTop){
 toucher=true
+}
 }
 
 if(toucher==true){
