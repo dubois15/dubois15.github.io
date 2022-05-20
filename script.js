@@ -13,14 +13,21 @@ function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
 
-if (x + dx > largeur-diametre || x + dx < 0) 
-{dx = -dx;}
+//if (x + dx > largeur-diametre || x + dx < 0) 
+//{dx = -dx;}
 
 toucher=false
-if(x+dx < epaisseur || x+dx> largeur-diametre-epaisseur){
+if(x+dx < epaisseur){
+	if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre){
 toucher=true
 }
-console.log(toucher)
+	if(document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight> document.getElementById("balle").offsetTop){
+toucher=true
+}
+}
+if(x+dx> largeur-diametre-epaisseur){
+toucher=true
+}
 
 if(toucher==true){
 dx = -dx;
@@ -32,6 +39,12 @@ if(y + dy > hauteur-diametre || y + dy < 0)
 x += dx;
 y += dy;
 }
+
+
+
+
+
+
 
 function deplacement_racket1(u){
 	u += document.getElementById("racket1").offsetTop
@@ -68,9 +81,9 @@ document.getElementById("racket1").style.top=(w)/2+"px"
 document.getElementById("racket2").style.top=(w)/2+"px"
 x=largeur/2
 y=hauteur/2
-dx=5
+dx=-5
 dy=Math.random()*(dx/5)-dx/10
-setInterval(deplacement,50)
+setInterval(deplacement,10)
 }
 
 init();
