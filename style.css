@@ -17,6 +17,7 @@ background: red
 }
 
 #racket1{
+    left: 15px;
     width: 15px;
     height: 100px;
     background: blue;
@@ -24,7 +25,7 @@ background: red
 }
 
 #racket2{
-    right: 0;
+    right: 15px;
     width: 15px;
     height: 100px;
     background: red;
