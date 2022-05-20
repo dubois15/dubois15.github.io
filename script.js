@@ -40,11 +40,6 @@ y += dy;
 }
 
 
-
-
-
-
-
 function deplacement_racket1(u){
 	u += document.getElementById("racket1").offsetTop
 	if (u>w)
@@ -82,7 +77,7 @@ x=largeur/2
 y=hauteur/2
 dx=-5
 dy=Math.random()*(dx/5)-dx/10
-setInterval(deplacement,10)
+setInterval(deplacement,5)
 }
 
 init();
