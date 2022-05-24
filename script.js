@@ -20,6 +20,9 @@ toucher=false
 if(x+dx < epaisseur){
 	if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight> document.getElementById("balle").offsetTop){
 toucher=true
+
+if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight-30"px"> document.getElementById("balle").offsetTop){
+dy=-10*dy
 }
 }
 if(x+dx> largeur-diametre-epaisseur){
