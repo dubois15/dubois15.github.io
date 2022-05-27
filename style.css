@@ -3,7 +3,7 @@ width:1330px;
 height:730px;
 border:3px solid #007;
 position: relative;
-background: hotpink;
+background: deeppink;
 }
 
 #balle{
@@ -14,7 +14,7 @@ width:25px;
 height:25px;
 border:1px ;
 border-radius:25px;
-background: red
+background: white;
 }
 
 #racket1{
@@ -29,7 +29,7 @@ background: red
     right: 15px;
     width: 15px;
     height: 100px;
-    background: red;
+    background: palegreen;
     position: absolute;
 }
 
@@ -69,9 +69,9 @@ background: red
 }
 
 @keyframes racket1{
-    0%{background-color: red;}
-    50%{background-color: green;}
-    100%{background-color: red;}
+    0%{background-color: white;}
+    20%{background-color: green;}
+    100%{background-color: white;}
 }
 
 .racket1{
@@ -81,9 +81,9 @@ background: red
 
 
 @keyframes racket2{
-    0%{background-color: red;}
-    50%{background-color: blue;}
-    100%{background-color: red;}
+    0%{background-color: white;}
+    20%{background-color: blue;}
+    100%{background-color: white;}
 }
 
 .racket2{
