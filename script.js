@@ -39,11 +39,11 @@ if(x +dx < epaisseur){
  animation("racket1")
 if(document.getElementById("balle").offsetTop
 <document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
-	dy=dy-5
+	dy=dy-0,5
     }
     if(document.getElementById("balle").offsetTop
 >document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*75/100){
-	dy=dy+5
+	dy=dy+0,5
     }
 }
 }
@@ -54,11 +54,11 @@ if (x + dx > largeur-diametre-epaisseur ) {
 	dx=-dx;
 animation("racket2")
 if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
-	dy=dy-5
+	dy=dy-0,5
 	}
 	if(document.getElementById("balle").offsetTop
 >document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*75/100){
-	dy=dy+5
+	dy=dy+0,5
     }
  }  
  }
@@ -134,5 +134,7 @@ score2=0
 }
 
 function animation(animation){
+	document.getElementById("balle").classList.remove("racket1")
+	document.getElementById("balle").classList.remove("racket2")
 	document.getElementById("balle").classList.add(animation)
 }

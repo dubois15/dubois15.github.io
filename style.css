@@ -75,8 +75,8 @@ background: red
 }
 
 .racket1{
-    animation-duration: "1s";
-    animation-name: "racket1";
+    animation-duration: 1s;
+    animation-name: racket1;
 }
 
 
@@ -87,6 +87,6 @@ background: red
 }
 
 .racket2{
-    animation-duration: "1s";
-    animation-name: "racket2";
+    animation-duration: 1s;
+    animation-name: racket2;
 }
