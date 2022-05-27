@@ -32,3 +32,42 @@ background: red
     position: absolute;
 }
 
+#score1{
+    color: white;
+    left: 10px;
+    position: absolute;
+}
+
+#score2{
+    color: white;
+    right: 10px;
+    position: absolute;
+}
+
+#victoire1{
+    color: white;
+    right: 0;
+    left: 0;
+    top: 39%;
+    position: absolute;
+    text-align: center;
+}
+
+#victoire2{
+    color: white;
+    right: 0;
+    left: 0;
+    top: 39%;
+    position: absolute;
+    text-align: center;
+}
+
+#reset {
+    width: 100px;
+    right: 0;
+    left: 0;
+    top: 60%;
+    position: absolute;
+    margin: auto;
+}
+

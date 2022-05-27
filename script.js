@@ -81,6 +81,23 @@ y=hauteur/2
 dx=-5
 dy=Math.random()*(dx/5)-dx/10
 setInterval(deplacement,5)
+document.getElementById("score1").innerHTML=0
+document.getElementById("score2").innerHTML=0
+document.getElementById("victoire1").hidden=true;
+document.getElementById("victoire2").hidden=true;
+document.getElementById("reset").hidden=true;
+
 }
 
 init();
+
+function victoire(j){
+	document.getElementById("reset").hidden=false
+	clearInterval(interval)
+	if (j==1)
+		document.getElementById("victoire1").hidden=false;
+	if (j==2)
+		document.getElementById("victoire2").hidden=false;
+
+
+}
