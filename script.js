@@ -2,6 +2,8 @@ x=0
 y=0
 dx=0
 dy=0
+score1=0
+score2=0
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
 diametre=document.getElementById("balle").clientHeight
@@ -12,35 +14,48 @@ w=(document.getElementById("terrain").clientHeight-document.getElementById("rack
 function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
+    if (x + dx < 0 ){
+        dx = -dx;
+        score2++;
+        document.getElementById("score2").innerHTML=score2
+        if (score2>3){
+        	victoire(2)
+        }
+    }
+    if(x+dx>largeur-diametre){
+    	dx=-dx;
+        score1++;
+        document.getElementById("score1").innerHTML=score1
+        if (score1>3){
+        	victoire(1)
+        }
+    }
+if(x +dx < epaisseur){
 
-if (x + dx > largeur-diametre || x + dx < 0) 
-{dx = -dx;}
-
-toucher=false
-if(x+dx < epaisseur){
-	if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight> document.getElementById("balle").offsetTop){
-toucher=true
-
-if(document.getElementById("racket1").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight-30"px"> document.getElementById("balle").offsetTop){
-dy=-10*dy
+	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop-diametre
+		&&
+		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
+	dx=-dx;
+    }
 }
-}
-if(x+dx> largeur-diametre-epaisseur){
-	if(document.getElementById("racket2").offsetTop < document.getElementById("balle").offsetTop+diametre && document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight> document.getElementById("balle").offsetTop){
-toucher=true
-}
-}
+if (x + dx > largeur-diametre-epaisseur ) {
+        if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop-diametre
+		&&
+		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
+	dx=-dx;
+	if(true){
+	 dy=dy*2
+     	}
+     }  
+ }
 
-if(toucher==true){
-dx = -dx;
+if (y + dy > hauteur-diametre || y + dy<0){
+	dy =-dy;
 }
-
-if(y + dy > hauteur-diametre || y + dy < 0) 
-{dy = -dy;}
-
 x += dx;
 y += dy;
 }
+
 
 
 function deplacement_racket1(u){
@@ -72,6 +87,7 @@ function touchePressee(e){
 		deplacement_racket2(100)
 }
 document.addEventListener('keydown',touchePressee);
+document.getElementById("reset").addEventListener("click",init);
 
 function init(){
 document.getElementById("racket1").style.top=(w)/2+"px"
@@ -80,7 +96,7 @@ x=largeur/2
 y=hauteur/2
 dx=-5
 dy=Math.random()*(dx/5)-dx/10
-setInterval(deplacement,5)
+interval=setInterval(deplacement,5)
 document.getElementById("score1").innerHTML=0
 document.getElementById("score2").innerHTML=0
 document.getElementById("victoire1").hidden=true;

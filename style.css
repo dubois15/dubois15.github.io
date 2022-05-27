@@ -3,6 +3,7 @@ width:1330px;
 height:730px;
 border:3px solid #007;
 position: relative;
+background: hotpink;
 }
 
 #balle{
@@ -33,19 +34,16 @@ background: red
 }
 
 #score1{
-    color: white;
     left: 10px;
     position: absolute;
 }
 
 #score2{
-    color: white;
     right: 10px;
     position: absolute;
 }
 
 #victoire1{
-    color: white;
     right: 0;
     left: 0;
     top: 39%;
@@ -54,7 +52,6 @@ background: red
 }
 
 #victoire2{
-    color: white;
     right: 0;
     left: 0;
     top: 39%;
