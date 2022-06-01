@@ -90,3 +90,26 @@ background: white;
     animation-duration: 1s;
     animation-name: racket2;
 }
+
+@keyframes couleur1{
+    0%{background-color: yellow;}
+    20%{background-color: green;}
+    100%{background-color: yellow;}
+}
+
+.couleur1{
+    animation-duration: 1s;
+    animation-name: couleur1;
+}
+
+@keyframes couleur2{
+    0%{background-color: yellow;}
+    20%{background-color: green;}
+    100%{background-color: yellow;}
+}
+
+.couleur2{
+    animation-duration: 1s;
+    animation-name: couleur1;
+}
+
