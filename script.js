@@ -17,7 +17,10 @@ document.getElementById("balle").style.top=y+"px"
     if (x + dx < 0 ){
         dx = -dx;
         score2++;
+        dy=0
+        dx=0
         document.getElementById("score2").innerHTML=score2
+        setTimeout(balleaucentre,1000)
         if (score2>3){
         	victoire(2)
         }
@@ -25,7 +28,10 @@ document.getElementById("balle").style.top=y+"px"
     if(x+dx>largeur-diametre){
     	dx=-dx;
         score1++;
+        dy=0
+        dx=0
         document.getElementById("score1").innerHTML=score1
+        setTimeout(balleaucentre,1000)
         if (score1>3){
         	victoire(1)
         }
@@ -37,15 +43,15 @@ if(x +dx < epaisseur){
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
 	dx=-dx;
  animation("racket1")
+ couleur1("couleur1")
 if(document.getElementById("balle").offsetTop
 <document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
 	dy=dy-0.5
-	couleur1("racket1")
+
     }
     if(document.getElementById("balle").offsetTop
 >document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*75/100){
 	dy=dy+0.5
-	couleur1("racket1")
     }
 }
 }
@@ -54,15 +60,14 @@ if (x + dx > largeur-diametre-epaisseur ) {
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
 	dx=-dx;
+couleur2("couleur2")
 animation("racket2")
-couleur2("racket2")
 if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
 	dy=dy-0.5
 	}
 	if(document.getElementById("balle").offsetTop
 >document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*75/100){
 	dy=dy+0.5
-couleur2("racket2")
     }
  }  
  }
@@ -137,6 +142,20 @@ score2=0
 
 }
 
+function balleaucentre() {
+	y=(hauteur-document.getElementById("balle").clientHeight)/2
+	x=(largeur-document.getElementById("balle").clientWidth)/2
+	if (document.getElementById("balle").offsetLeft>x){
+		dx=-5
+	}
+	if (document.getElementById("balle").offsetLeft<x){
+		dx=5
+	}
+	dy=Math.random()-1.
+	
+	}
+
+
 function animation(animation){
 	document.getElementById("balle").classList.add(animation)
 	setTimeout(animation2,1000)
@@ -159,5 +178,5 @@ function couleur2(animation){
 
 function couleur(){
 document.getElementById("racket1").classList.remove("couleur1")
-	document.getElementById("racket2").classList.remove("couleur2")
+document.getElementById("racket2").classList.remove("couleur2")
 }

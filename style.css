@@ -93,7 +93,7 @@ background: white;
 
 @keyframes couleur1{
     0%{background-color: yellow;}
-    20%{background-color: green;}
+    20%{background-color: blue;}
     100%{background-color: yellow;}
 }
 
@@ -110,6 +110,6 @@ background: white;
 
 .couleur2{
     animation-duration: 1s;
-    animation-name: couleur1;
+    animation-name: couleur2;
 }
 
