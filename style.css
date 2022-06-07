@@ -36,11 +36,18 @@ background: white;
 #score1{
     left: 10px;
     position: absolute;
+    font-family:Impact, fantasy ;
+    opacity:0.2;
+    font-size: 200px;
+
 }
 
 #score2{
     right: 10px;
     position: absolute;
+    font-family:Impact, fantasy ;
+    opacity:0.2;
+    font-size: 200px;
 }
 
 #victoire1{

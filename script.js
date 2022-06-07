@@ -15,7 +15,7 @@ function deplacement(){
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
     if (x + dx < 0 ){
-        dx = -dx;
+        dx = Math.abs(dx);
         score2++;
         dy=0
         dx=0
@@ -26,7 +26,7 @@ document.getElementById("balle").style.top=y+"px"
         }
     }
     if(x+dx>largeur-diametre){
-    	dx=-dx;
+    	dx=-Math.abs(dx);
         score1++;
         dy=0
         dx=0
@@ -125,10 +125,22 @@ document.getElementById("score2").innerHTML=0
 document.getElementById("victoire1").hidden=true;
 document.getElementById("victoire2").hidden=true;
 document.getElementById("reset").hidden=true;
+intervalRobot=setInterval(robot,150)
 
 }
 
 init();
+
+function robot(){
+	if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight/2){
+		deplacement_racket2(-50)
+	}
+	if(document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight/2){
+
+	deplacement_racket2(50)
+}
+}
+
 
 function victoire(j){
 	document.getElementById("reset").hidden=false
@@ -180,3 +192,5 @@ function couleur(){
 document.getElementById("racket1").classList.remove("couleur1")
 document.getElementById("racket2").classList.remove("couleur2")
 }
+
+
