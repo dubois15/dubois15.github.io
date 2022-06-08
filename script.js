@@ -12,6 +12,9 @@ w=(document.getElementById("terrain").clientHeight-document.getElementById("rack
 //console.log(largeur,hauteur,diametre)
 
 function deplacement(){
+	if(dx==0){
+		return
+	}
 document.getElementById("balle").style.left=x+"px"
 document.getElementById("balle").style.top=y+"px"
     if (x + dx < 0 ){
@@ -41,14 +44,13 @@ if(x +dx < epaisseur){
 	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
-	dx=-dx;
+	dx=-dx*1.01;
  animation("racket1")
  couleur1("couleur1")
 if(document.getElementById("balle").offsetTop
 <document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*25/100){
 	dy=dy-0.5
-
-    }
+}
     if(document.getElementById("balle").offsetTop
 >document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight*75/100){
 	dy=dy+0.5
@@ -59,18 +61,20 @@ if (x + dx > largeur-diametre-epaisseur ) {
     if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
-	dx=-dx;
+	dx=-dx*1.01;
 couleur2("couleur2")
 animation("racket2")
 if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
-	dy=dy-0.5
+dy=dy-0.5
 	}
 	if(document.getElementById("balle").offsetTop
 >document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*75/100){
 	dy=dy+0.5
     }
  }  
- }
+}
+ 
+
 
 if (y + dy > hauteur-diametre || y + dy<0){
 	dy =-dy;
@@ -78,6 +82,7 @@ if (y + dy > hauteur-diametre || y + dy<0){
 x += dx;
 y += dy;
 }
+
 
 
 
@@ -125,19 +130,35 @@ document.getElementById("score2").innerHTML=0
 document.getElementById("victoire1").hidden=true;
 document.getElementById("victoire2").hidden=true;
 document.getElementById("reset").hidden=true;
-intervalRobot=setInterval(robot,150)
+
 
 }
 
 init();
 
-function robot(){
-	if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight/2){
-		deplacement_racket2(-50)
+function robot1(){
+	if (dx>0){
+		return
+	}
+	if(document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight/2){
+		deplacement_racket1(-25)
+	}
+	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight/2){
+
+	deplacement_racket1(25)
+}
+}
+
+function robot2(){
+	if(dx<0){
+		return
 	}
 	if(document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight/2){
+		deplacement_racket2(-25)
+	}
+	if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight/2){
 
-	deplacement_racket2(50)
+	deplacement_racket2(25)
 }
 }
 
@@ -191,6 +212,25 @@ function couleur2(animation){
 function couleur(){
 document.getElementById("racket1").classList.remove("couleur1")
 document.getElementById("racket2").classList.remove("couleur2")
+}
+
+
+document.getElementById('auto2').addEventListener('click',auto2)
+
+function auto2(){
+	if(document.getElementById('auto2').checked){
+intervalRobot2=setInterval(robot2,75)
+}
+else{clearInterval(intervalRobot2)}
+}
+
+document.getElementById('auto1').addEventListener('click',auto1)
+
+function auto1(){
+	if(document.getElementById('auto1').checked){
+intervalRobot1=setInterval(robot1,75)
+}
+else{clearInterval(intervalRobot1)}
 }
 
 
