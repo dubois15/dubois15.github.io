@@ -145,6 +145,7 @@ background: white;
 }
 
 #echange{
+width: 100px;
 position: absolute;
 margin: auto;
 right: 0;
