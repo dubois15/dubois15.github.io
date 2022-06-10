@@ -9,16 +9,19 @@
 	<div id="terrain"><div id="balle"></div>
 	<div id="racket1"></div>
 	<div id="racket2"></div>
-	<div id="score1">score joueur 1</div>
-	<div id="score2">score joueur 2</div>
+	<div id="score1">0</div>
+	<div id="score2">0</div>
+	<button id="start">start</button>
 	<div id="victoire1">WINNERS PLAYER 1</div>
 	<div id="victoire2">WINNERS PLAYER 2</div>
 	<button id="reset">reset</button>
+	<div id="echange">echange</div>
 	</div>
-	<div id=robot><label><input name=robot1 type="checkbox" id=auto1>auto1</label></div>
-	<div align="right" id=robot><label><input name=robot2 type="checkbox" id=auto2>auto2</label></div>
-	<div> <input type="range" id="cowbell" name="cowbell" min="0" max="100" value="90" step="10">
-		<label for="cowbell">Level</label>
-	</div>
+	<div id=robot></div>
+	<div align="right" id=robot></div>
+	<div id="gauche"><label><input name=robot1 type="checkbox" id=auto1>auto1</label><input type="range" id="level1" name="cowbell" min="0" max="300" value="50" step="10">
+		<label for="cowbell">facile</label> </div>
+	<div id="droite"> <label><input name=robot2 type="checkbox" id=auto2>auto2</label><input type="range" id="level2" name="cowbell" min="0" max="300" value="50" step="10">
+		<label for="cowbell">facile</label> </div>
 </body>
 </html>

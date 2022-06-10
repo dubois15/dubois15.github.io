@@ -4,6 +4,9 @@ dx=0
 dy=0
 score1=0
 score2=0
+level=50
+levell=50
+echange=0
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
 diametre=document.getElementById("balle").clientHeight
@@ -44,7 +47,7 @@ if(x +dx < epaisseur){
 	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
-	dx=-dx*1.01;
+	dx=-dx*1.05;
  animation("racket1")
  couleur1("couleur1")
 if(document.getElementById("balle").offsetTop
@@ -61,7 +64,7 @@ if (x + dx > largeur-diametre-epaisseur ) {
     if(document.getElementById("balle").offsetTop>document.getElementById("racket2").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
-	dx=-dx*1.01;
+	dx=-dx*1.05;
 couleur2("couleur2")
 animation("racket2")
 if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
@@ -130,11 +133,17 @@ document.getElementById("score2").innerHTML=0
 document.getElementById("victoire1").hidden=true;
 document.getElementById("victoire2").hidden=true;
 document.getElementById("reset").hidden=true;
+document.getElementById("start").style.visibility="hidden"
+if(document.getElementById('auto1').checked){
+intervalRobot1=setInterval(robot1,level)}
+if(document.getElementById('auto2').checked){
+intervalRobot2=setInterval(robot2,levell)
+}
 
 
 }
 
-init();
+
 
 function robot1(){
 	if (dx>0){
@@ -172,6 +181,8 @@ function victoire(j){
 		document.getElementById("victoire2").hidden=false;
 score1=0
 score2=0
+clearInterval(intervalRobot1)
+clearInterval(intervalRobot2)
 
 }
 
@@ -215,22 +226,21 @@ document.getElementById("racket2").classList.remove("couleur2")
 }
 
 
-document.getElementById('auto2').addEventListener('click',auto2)
 
-function auto2(){
-	if(document.getElementById('auto2').checked){
-intervalRobot2=setInterval(robot2,75)
-}
-else{clearInterval(intervalRobot2)}
-}
+document.getElementById("start").addEventListener("click",init);
 
-document.getElementById('auto1').addEventListener('click',auto1)
 
-function auto1(){
-	if(document.getElementById('auto1').checked){
-intervalRobot1=setInterval(robot1,75)
-}
-else{clearInterval(intervalRobot1)}
+function level1(){
+	level=30+parseInt(document.getElementById("level1").value)
+	console.log(level)
 }
 
+document.getElementById("level1").addEventListener("click",level1)
+
+function level2(){
+	levell=30+parseInt(document.getElementById("level2").value)
+	console.log(levell)
+}
+
+document.getElementById("level2").addEventListener("click",level2)
 

@@ -1,6 +1,6 @@
 #terrain{
-width:1330px;
-height:730px;
+width:1320px;
+height:690px;
 border:3px solid #007;
 position: relative;
 background: deeppink;
@@ -56,6 +56,7 @@ background: white;
     top: 39%;
     position: absolute;
     text-align: center;
+    visibility: hidden;
 }
 
 #victoire2{
@@ -64,6 +65,7 @@ background: white;
     top: 39%;
     position: absolute;
     text-align: center;
+    visibility: hidden;
 }
 
 #reset {
@@ -73,6 +75,7 @@ background: white;
     top: 60%;
     position: absolute;
     margin: auto;
+    visibility: hidden;
 }
 
 @keyframes racket1{
@@ -124,3 +127,27 @@ background: white;
     font-family: serif;
 }
 
+#start{
+    width: 100px;
+    right: 0;
+    left: 0;
+    top: 70%;
+    position: absolute;
+    margin: auto;
+}
+
+#droite{
+    float: right;
+}
+
+#gauche{
+    float: left;
+}
+
+#echange{
+position: absolute;
+margin: auto;
+right: 0;
+left: 0;
+top: 10%;
+}
