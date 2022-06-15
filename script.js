@@ -138,7 +138,8 @@ document.getElementById("score2").innerHTML=0
 document.getElementById("victoire1").style.visibility="hidden";
 document.getElementById("victoire2").style.visibility="hidden";
 document.getElementById("reset").style.visibility="hidden";
-document.getElementById("start").style.visibility="hidden"
+document.getElementById("start").style.visibility="hidden";
+document.getElementById("texte").style.visibility="hidden";
 if(document.getElementById('auto1').checked){
 intervalRobot1=setInterval(robot1,level)}
 if(document.getElementById('auto2').checked){
@@ -179,12 +180,12 @@ function robot2(){
 
 
 function victoire(j){
-	document.getElementById("reset").style.visibility="visibility";
+	document.getElementById("reset").style.visibility="visible";
 	clearInterval(interval)
 	if (j==1)
-		document.getElementById("victoire1").style.visibility="visibility";
+		document.getElementById("victoire1").style.visibility="visible";
 	if (j==2)
-		document.getElementById("victoire2").style.visibility="visibility";
+		document.getElementById("victoire2").style.visibility="visible";
 score1=0
 score2=0
 if(intervalRobot1){
@@ -199,16 +200,17 @@ clearInterval(intervalRobot2)
 function balleaucentre() {
 	echange=0
         document.getElementById("echange").innerHTML=echange
-        if (document.getElementById("balle").offsetLeft>x){
+        mterrain=(largeur-document.getElementById("terrain").clientWidth)/2
+        if (document.getElementById("balle").offsetLeft>mterrain){
 		dx=-5
 	}
-	if (document.getElementById("balle").offsetLeft<x){
+	if (document.getElementById("balle").offsetLeft<mterrain){
 		dx=5
 	}
-	dy=Math.random()-1.
+	dy=Math.random()*(dx/5)-dx/10
 	console.log(dx)
-	y=(hauteur-document.getElementById("balle").clientHeight)/2
-	x=(largeur-document.getElementById("balle").clientWidth)/2
+	x=largeur/2
+	y=hauteur/2
 	
 	}
 
