@@ -199,15 +199,16 @@ clearInterval(intervalRobot2)
 function balleaucentre() {
 	echange=0
         document.getElementById("echange").innerHTML=echange
-	y=(hauteur-document.getElementById("balle").clientHeight)/2
-	x=(largeur-document.getElementById("balle").clientWidth)/2
-	if (document.getElementById("balle").offsetLeft>x){
+        if (document.getElementById("balle").offsetLeft>x){
 		dx=-5
 	}
 	if (document.getElementById("balle").offsetLeft<x){
 		dx=5
 	}
 	dy=Math.random()-1.
+	console.log(dx)
+	y=(hauteur-document.getElementById("balle").clientHeight)/2
+	x=(largeur-document.getElementById("balle").clientWidth)/2
 	
 	}
 
