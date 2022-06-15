@@ -7,6 +7,8 @@ score2=0
 level=50
 levell=50
 echange=0
+intervalRobot1=null
+intervalRobot2=null
 largeur=document.getElementById("terrain").clientWidth
 hauteur=document.getElementById("terrain").clientHeight
 diametre=document.getElementById("balle").clientHeight
@@ -43,11 +45,12 @@ document.getElementById("balle").style.top=y+"px"
         }
     }
 if(x +dx < epaisseur){
-
 	if(document.getElementById("balle").offsetTop>document.getElementById("racket1").offsetTop-diametre
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket1").offsetTop+document.getElementById("racket1").clientHeight){
 	dx=-dx*1.05;
+echange++;
+document.getElementById("echange").innerHTML=echange
  animation("racket1")
  couleur1("couleur1")
 if(document.getElementById("balle").offsetTop
@@ -65,6 +68,8 @@ if (x + dx > largeur-diametre-epaisseur ) {
 		&&
 		document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight){
 	dx=-dx*1.05;
+echange++;
+document.getElementById("echange").innerHTML=echange
 couleur2("couleur2")
 animation("racket2")
 if (document.getElementById("balle").offsetTop<document.getElementById("racket2").offsetTop+document.getElementById("racket2").clientHeight*25/100){
@@ -138,6 +143,7 @@ if(document.getElementById('auto1').checked){
 intervalRobot1=setInterval(robot1,level)}
 if(document.getElementById('auto2').checked){
 intervalRobot2=setInterval(robot2,levell)
+document.getElementById("echange").innerHTML=0
 }
 
 
@@ -181,12 +187,18 @@ function victoire(j){
 		document.getElementById("victoire2").hidden=false;
 score1=0
 score2=0
+if(intervalRobot1){
 clearInterval(intervalRobot1)
+}
+if(intervalRobot2){
 clearInterval(intervalRobot2)
+}
 
 }
 
 function balleaucentre() {
+	echange=0
+        document.getElementById("echange").innerHTML=echange
 	y=(hauteur-document.getElementById("balle").clientHeight)/2
 	x=(largeur-document.getElementById("balle").clientWidth)/2
 	if (document.getElementById("balle").offsetLeft>x){

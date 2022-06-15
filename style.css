@@ -145,10 +145,14 @@ background: white;
 }
 
 #echange{
+text-align: center;
 width: 100px;
 position: absolute;
 margin: auto;
 right: 0;
 left: 0;
-top: 10%;
+top: 40%;
+font-family:Impact, fantasy ;
+opacity:0.2;
+font-size: 150px;
 }
