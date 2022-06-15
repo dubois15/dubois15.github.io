@@ -135,9 +135,9 @@ dy=Math.random()*(dx/5)-dx/10
 interval=setInterval(deplacement,5)
 document.getElementById("score1").innerHTML=0
 document.getElementById("score2").innerHTML=0
-document.getElementById("victoire1").hidden=true;
-document.getElementById("victoire2").hidden=true;
-document.getElementById("reset").hidden=true;
+document.getElementById("victoire1").style.visibility="hidden";
+document.getElementById("victoire2").style.visibility="hidden";
+document.getElementById("reset").style.visibility="hidden";
 document.getElementById("start").style.visibility="hidden"
 if(document.getElementById('auto1').checked){
 intervalRobot1=setInterval(robot1,level)}
@@ -179,12 +179,12 @@ function robot2(){
 
 
 function victoire(j){
-	document.getElementById("reset").hidden=false
+	document.getElementById("reset").style.visibility="visibility";
 	clearInterval(interval)
 	if (j==1)
-		document.getElementById("victoire1").hidden=false;
+		document.getElementById("victoire1").style.visibility="visibility";
 	if (j==2)
-		document.getElementById("victoire2").hidden=false;
+		document.getElementById("victoire2").style.visibility="visibility";
 score1=0
 score2=0
 if(intervalRobot1){
